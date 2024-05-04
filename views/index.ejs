@@ -1,0 +1,29 @@
+<div class="author">
+  <h1 class="author__heading">Hi, I am Medha.</h1>
+  <p class="author__body">Aspiring Full Stack Developer</p>
+</div>
+
+<section class="articles">
+  <h2 class="articles__heading">Latest Posts</h2>
+
+  <ul class="article-ul">
+    <% data.forEach(post => { %>
+    <li>
+      <a href="/post/<%= post._id %>">
+        <span><%= post.title %></span>
+        <!-- <% if (post.createdAt && post.createdAt instanceof Date) { %>
+        <span class="article-list__date"
+          ><%= post.createdAt.toDateString() %></span
+        >
+        <% } else { %>
+        <span class="article-list__date">Date not available</span>
+        <% } %> -->
+      </a>
+    </li>
+    <% }) %>
+  </ul>
+
+  <% if (nextPage !== null) { %>
+  <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+  <% } %>
+</section>
